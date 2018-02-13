@@ -1,0 +1,48 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Recipe</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid *ngIf="recipe">
+    <ion-row>
+      <ion-col text-center>
+        <h2>{{ recipe.title }}</h2>
+        <div class="subtitle">{{ recipe.difficulty }}</div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-row>
+        <ion-col>
+          <p text-center>{{ recipe.description }}</p>
+        </ion-col>
+      </ion-row>
+    </ion-row>
+    <ion-row *ngIf="recipe.ingredients">
+      <ion-col>
+        <ion-list>
+          <ion-item *ngFor="let ingredient of recipe.ingredients">
+            {{ ingredient.name }}
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="recipe.ingredients">
+      <ion-col text-center>
+        <button ion-button clear (click)="onAddIngredientToShop()">Add ingredients to Shopping List</button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button ion-button outline block (click)="onEditRecipe()">Edit Recipe</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button outline block color="danger" (click)="onDeleteRecipe()">Delete Recipe</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
