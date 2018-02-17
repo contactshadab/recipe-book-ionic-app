@@ -12,6 +12,11 @@ import { EditRecipePage } from '../pages/edit-recipe/edit-recipe';
 import { RecipePage } from '../pages/recipe/recipe';
 import { ShoppingListService } from '../services/shopping-list';
 import { RecipeService } from '../services/recipe';
+import { SigninPage } from '../pages/signin/signin';
+import { SignupPage } from '../pages/signup/signup';
+import { AuthService } from '../services/auth';
+import { HttpClientModule } from '@angular/common/http';
+import { SaveLoadOptionsPage } from '../pages/save-load-options/save-load-options';
 
 @NgModule({
   declarations: [
@@ -20,11 +25,15 @@ import { RecipeService } from '../services/recipe';
     ShoppingListPage,
     RecipesPage,
     EditRecipePage,
-    RecipePage
+    RecipePage,
+    SigninPage,
+    SignupPage,
+    SaveLoadOptionsPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -33,14 +42,18 @@ import { RecipeService } from '../services/recipe';
     ShoppingListPage,
     RecipesPage,
     EditRecipePage,
-    RecipePage
+    RecipePage,
+    SigninPage,
+    SignupPage,
+    SaveLoadOptionsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ShoppingListService,
-    RecipeService
+    RecipeService,
+    AuthService
   ]
 })
 export class AppModule {}
